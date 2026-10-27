@@ -3,98 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STUDIO27</title>
+  <title>STUDIO27 | New Arrivals</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white text-black">
 
+  
+  <div class="bg-black text-white text-xs text-center py-2">Free shipping on orders over $200</div>
 
+ 
   <header class="border-b border-gray-300">
-    <div class="flex flex-col items-center gap-3 p-4 md:flex-row md:justify-between md:px-8">
-      <nav class="flex gap-6 text-sm">
-        <a href="index.html">New</a>
-        <a href="index.html">Men</a>
-        <a href="index.html">Women</a>
-        <a href="index.html">Sale</a>
+    <div class="flex flex-col items-center gap-3 p-4 md:grid md:grid-cols-3 md:px-8">
+      <a href="index.html" class="text-2xl font-bold tracking-widest md:order-2 md:justify-self-center">STUDIO27</a>
+      <nav class="flex gap-6 text-sm font-medium md:order-1 md:justify-self-start">
+        <a href="index.html" class="hover:underline">New</a>
+        <a href="index.html" class="hover:underline">Men</a>
+        <a href="index.html" class="hover:underline">Women</a>
+        <a href="index.html" class="hover:underline">Sale</a>
       </nav>
-      <h1 class="text-2xl font-bold tracking-widest">STUDIO27</h1>
-      <a href="#" class="text-sm">Cart (0)</a>
+      <a href="#" class="text-sm font-medium md:order-3 md:justify-self-end">&#128722; Cart (0)</a>
     </div>
   </header>
 
- 
-  <main class="p-4 md:p-8">
-    <h2 class="text-xl font-semibold mb-4">New Arrivals</h2>
-    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
 
-      <div>
-        <img src="images/product-1.svg" alt="Box Logo Tee" class="w-full">
-        <h3 class="mt-2 font-medium">Box Logo Tee</h3>
-        <p class="text-gray-500">$48</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
-      <div>
-        <img src="images/product-2.svg" alt="Heavyweight Hoodie" class="w-full">
-        <h3 class="mt-2 font-medium">Heavyweight Hoodie</h3>
-        <p class="text-gray-500">$165</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
-      <div>
-        <img src="images/product-3.svg" alt="Waffle Crewneck" class="w-full">
-        <h3 class="mt-2 font-medium">Waffle Crewneck</h3>
-        <p class="text-gray-500">$140</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
-      <div>
-        <img src="images/product-4.svg" alt="Washed Twill Cap" class="w-full">
-        <h3 class="mt-2 font-medium">Washed Twill Cap</h3>
-        <p class="text-gray-500">$55</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
-      <div>
-        <img src="images/product-5.svg" alt="Nylon Track Shorts" class="w-full">
-        <h3 class="mt-2 font-medium">Nylon Track Shorts</h3>
-        <p class="text-gray-500">$98</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
-      <div>
-        <img src="images/product-6.svg" alt="Canvas Tote" class="w-full">
-        <h3 class="mt-2 font-medium">Canvas Tote</h3>
-        <p class="text-gray-500">$38</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
-      <div>
-        <img src="images/product-7.svg" alt="Pocket Tee" class="w-full">
-        <h3 class="mt-2 font-medium">Pocket Tee</h3>
-        <p class="text-gray-500">$52</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
-      <div>
-        <img src="images/product-8.svg" alt="Quilted Vest" class="w-full">
-        <h3 class="mt-2 font-medium">Quilted Vest</h3>
-        <p class="text-gray-500">$225</p>
-        <button class="mt-2 w-full border border-black py-2 hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-
+  <section class="relative">
+    <img src="images/hero.svg" alt="Fall collection" class="w-full h-[420px] md:h-[620px] object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end items-start p-6 md:p-12 text-white">
+      <h2 class="text-4xl md:text-6xl font-bold">Fall Collection</h2>
+      <p class="mt-2 text-gray-200">Heavy fleece and washed layers. New drop every Friday.</p>
+      <a href="#products" class="mt-4 bg-white text-black px-6 py-3 text-sm font-medium hover:bg-gray-200">Shop Now</a>
     </div>
+  </section>
+
+  <main>
+
+    <section class="p-4 md:p-8">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <a href="index.html" class="block">
+        <div class="overflow-hidden bg-gray-100"><img src="images/product-2.svg" alt="Men" class="product-img w-full aspect-[4/5] object-cover"></div>
+        <p class="mt-2 text-sm font-semibold tracking-widest uppercase">Men</p>
+      </a>
+      <a href="index.html" class="block">
+        <div class="overflow-hidden bg-gray-100"><img src="images/product-7.svg" alt="Women" class="product-img w-full aspect-[4/5] object-cover"></div>
+        <p class="mt-2 text-sm font-semibold tracking-widest uppercase">Women</p>
+      </a>
+      <a href="index.html" class="block">
+        <div class="overflow-hidden bg-gray-100"><img src="images/product-6.svg" alt="Accessories" class="product-img w-full aspect-[4/5] object-cover"></div>
+        <p class="mt-2 text-sm font-semibold tracking-widest uppercase">Accessories</p>
+      </a>
+      </div>
+    </section>
+
+   
+    <section id="products" class="p-4 md:p-8">
+      <h2 class="text-2xl font-bold mb-6">New Arrivals</h2>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-1.svg" alt="Box Logo Tee" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Box Logo Tee</h3>
+          <p class="text-gray-500">$48</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-2.svg" alt="Heavyweight Hoodie" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Heavyweight Hoodie</h3>
+          <p class="text-gray-500">$165</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-3.svg" alt="Waffle Crewneck" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Waffle Crewneck</h3>
+          <p class="text-gray-500">$140</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-4.svg" alt="Washed Twill Cap" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Washed Twill Cap</h3>
+          <p class="text-gray-500">$55</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-5.svg" alt="Nylon Track Shorts" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Nylon Track Shorts</h3>
+          <p class="text-gray-500">$98</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-6.svg" alt="Canvas Tote" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Canvas Tote</h3>
+          <p class="text-gray-500">$38</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-7.svg" alt="Pocket Tee" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Pocket Tee</h3>
+          <p class="text-gray-500">$52</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      <div class="card">
+        <a href="product.html" class="block overflow-hidden bg-gray-100">
+          <img src="images/product-8.svg" alt="Quilted Vest" class="product-img w-full aspect-[4/5] object-cover">
+        </a>
+        <div class="flex justify-between mt-3 text-sm">
+          <h3 class="font-medium">Quilted Vest</h3>
+          <p class="text-gray-500">$225</p>
+        </div>
+        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
+      </div>
+      </div>
+    </section>
   </main>
 
-  
-  <footer class="border-t border-gray-300 mt-10 p-6 text-center text-sm text-gray-500">
-    <div class="flex justify-center gap-6 mb-2">
-      <a href="#">Shipping</a>
-      <a href="#">Returns</a>
-      <a href="#">Contact</a>
+  <footer class="bg-black text-white mt-16">
+    <div class="grid grid-cols-2 gap-8 p-8 md:grid-cols-4 md:px-12">
+      <div class="col-span-2 md:col-span-1">
+        <p class="text-xl font-bold tracking-widest">STUDIO27</p>
+        <p class="mt-3 text-sm text-gray-400">Everyday clothing in small runs.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Shop</h3>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="index.html">New arrivals</a></li>
+          <li><a href="index.html">Men</a></li>
+          <li><a href="index.html">Women</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Help</h3>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <h3 class="font-semibold mb-3">Newsletter</h3>
+        <div class="flex">
+          <input type="email" placeholder="Email address" class="min-w-0 flex-1 px-3 py-2 text-black text-sm">
+          <button class="bg-white text-black px-4 text-sm font-medium">Join</button>
+        </div>
+      </div>
     </div>
-    <p>&copy; 2026 STUDIO27</p>
+    <p class="border-t border-gray-700 text-center text-xs text-gray-400 py-4">&copy; 2026 STUDIO27. Student project.</p>
   </footer>
 
 </body>
