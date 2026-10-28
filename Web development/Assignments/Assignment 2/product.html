@@ -3,151 +3,429 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heavyweight Hoodie | STUDIO27</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/product.css">
-</head>
-<body class="bg-white text-black">
-
-
+  <title>Product Detail | Kith</title>
   
-  <div class="bg-black text-white text-xs text-center py-2">Free shipping on orders over $200</div>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <aside class="top-announcement-bar">
+    <div class="announcement-content">
+      <span class="desktop-only">COMPLIMENTARY DOMESTIC DISPATCH ON ORDERS OVER $150</span>
+      <span>KITH WINTER 2026 EDITORIAL &bull; THE SOHO ARCHIVE</span>
+      <span class="desktop-only">USD ($)</span>
+    </div>
+  </aside>
 
-  <header class="border-b border-gray-300">
-    <div class="flex flex-col items-center gap-3 p-4 md:grid md:grid-cols-3 md:px-8">
-      <a href="index.html" class="text-2xl font-bold tracking-widest md:order-2 md:justify-self-center">STUDIO27</a>
-      <nav class="flex gap-6 text-sm font-medium md:order-1 md:justify-self-start">
-        <a href="index.html" class="hover:underline">New</a>
-        <a href="index.html" class="hover:underline">Men</a>
-        <a href="index.html" class="hover:underline">Women</a>
-        <a href="index.html" class="hover:underline">Sale</a>
+  <!-- ================= SOLID WHITE HEADER FOR PRODUCT DETAIL ================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-left">
+        <a href="index.html#products">NEW</a>
+        <a href="index.html#products">MENS</a>
+        <a href="index.html#products">WOMENS</a>
+        <a href="index.html#products">KIDS</a>
       </nav>
-      <a href="#" class="text-sm font-medium md:order-3 md:justify-self-end">&#128722; Cart (0)</a>
+
+      <div class="logo-container">
+        <a href="index.html" class="kith-boxed-logo">KITH</a>
+      </div>
+
+      <div class="nav-right">
+        <a href="index.html#editorial" class="hospitality-link">HOSPITALITY</a>
+        
+        <a href="#" class="icon-btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:20px;height:20px;display:block;">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <a href="#" class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:20px;height:20px;display:block;">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+
+        <a href="product.html?id=hoodie" class="cart-btn" aria-label="Shopping Bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:20px;height:20px;display:block;">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count">1</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="p-4 md:p-8">
-    <p class="text-sm text-gray-500 mb-6"><a href="index.html">Home</a> / New Arrivals / Heavyweight Hoodie</p>
+  <!-- ================= BREADCRUMBS ================= -->
+  <nav class="breadcrumb-nav">
+    <div class="breadcrumb-container">
+      <a href="index.html">Home</a>
+      <span class="divider">/</span>
+      <a href="index.html#products">New Arrivals</a>
+      <span class="divider">/</span>
+      <span class="current" id="breadcrumb-title">Heavyweight Hoodie</span>
+    </div>
+  </nav>
 
-    <div class="grid gap-8 md:grid-cols-2 md:gap-12">
-
-      <div>
-        <img src="images/hoodie-1.svg" alt="Heavyweight Hoodie" class="w-full aspect-[4/5] object-cover bg-gray-100">
-        <div class="grid grid-cols-3 gap-3 mt-3"><img src="images/hoodie-2.svg" class="thumb w-full aspect-[4/5] object-cover bg-gray-100" alt="Hoodie colour 2"><img src="images/hoodie-3.svg" class="thumb w-full aspect-[4/5] object-cover bg-gray-100" alt="Hoodie colour 3"><img src="images/hoodie-1.svg" class="thumb w-full aspect-[4/5] object-cover bg-gray-100" alt="Hoodie colour 1"></div>
-      </div>
-
-      <div>
-        <h1 class="text-3xl font-bold">Heavyweight Hoodie</h1>
-        <p class="text-xl mt-2">$165</p>
-        <p class="text-sm text-gray-500 mt-1">Colour: Charcoal</p>
-
-        <h3 class="text-sm font-semibold mt-8 mb-2">Size</h3>
-        <div class="grid grid-cols-5 gap-2"><button class="border py-3 text-sm border-gray-300 hover:border-black">S</button><button class="border py-3 text-sm bg-black text-white border-black">M</button><button class="border py-3 text-sm border-gray-300 hover:border-black">L</button><button class="border py-3 text-sm border-gray-300 hover:border-black">XL</button><button class="border py-3 text-sm border-gray-300 hover:border-black">XXL</button></div>
-
-        <h3 class="text-sm font-semibold mt-6 mb-2">Quantity</h3>
-        <div class="flex w-fit border border-gray-300">
-          <button class="qty-btn">&minus;</button>
-          <input type="number" value="1" min="1" class="w-14 text-center border-x border-gray-300">
-          <button class="qty-btn">+</button>
+  <!-- ================= SINGLE PRODUCT DETAIL LAYOUT ================= -->
+  <main class="product-detail-container">
+    <div class="product-detail-layout">
+      
+      <!-- LEFT: DYNAMIC HIGH-RESOLUTION PRODUCT IMAGE -->
+      <section class="product-gallery">
+        <div class="main-image-frame">
+          <img 
+            id="pdp-img"
+            src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=85" 
+            alt="Product Image"
+            class="main-product-img"
+          >
         </div>
 
-        <button class="mt-8 w-full bg-black text-white py-4 font-medium hover:bg-gray-800">Add to Cart</button>
-
-        <div class="mt-8 border-t border-gray-300 pt-6 text-sm leading-relaxed">
-          <h3 class="font-semibold mb-2">Description</h3>
-          <p>A heavyweight brushed-back fleece hoodie with a boxy fit, dropped shoulders and a double-layer hood. Garment washed for a soft, worn-in feel.</p>
-          <ul class="list-disc pl-5 mt-3 text-gray-500">
-            <li>450gsm 100% cotton</li>
-            <li>Kangaroo pocket, ribbed cuffs and hem</li>
-            <li>Machine wash cold</li>
-          </ul>
+        <!-- 3 Supplementary Angle Views -->
+        <div class="gallery-thumbnails">
+          <div class="thumb-box active" onclick="swapImage(this)">
+            <img id="thumb-1" src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=400&q=80" alt="Angle 1">
+          </div>
+          <div class="thumb-box" onclick="swapImage(this)">
+            <img id="thumb-2" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=400&q=80" alt="Angle 2">
+          </div>
+          <div class="thumb-box" onclick="swapImage(this)">
+            <img id="thumb-3" src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=400&q=80" alt="Angle 3">
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- RIGHT: STICKY BUY PANEL (Screenshot 4 Match) -->
+      <section class="product-buy-panel">
+        <div class="product-header-block">
+          <h1 class="pdp-title" id="pdp-title">Heavyweight Hoodie</h1>
+          <div class="pdp-price" id="pdp-price">$165</div>
+          <div class="pdp-colour">Colour: <span id="pdp-colour">Charcoal</span></div>
+        </div>
+
+        <!-- Size Selector -->
+        <div class="pdp-section">
+          <div class="size-header">
+            <span class="label-text">Size</span>
+            <a href="#" class="size-guide-link">Size Guide</a>
+          </div>
+
+          <div class="size-options-grid">
+            <button type="button" class="size-pill" onclick="selectSize(this)">S</button>
+            <button type="button" class="size-pill active" onclick="selectSize(this)">M</button>
+            <button type="button" class="size-pill" onclick="selectSize(this)">L</button>
+            <button type="button" class="size-pill" onclick="selectSize(this)">XL</button>
+            <button type="button" class="size-pill" onclick="selectSize(this)">XXL</button>
+          </div>
+        </div>
+
+        <!-- Quantity Selector -->
+        <div class="pdp-section">
+          <label for="quantity-input" class="label-text">Quantity</label>
+          <div class="quantity-stepper">
+            <button type="button" class="stepper-btn" onclick="stepQty(-1)">&minus;</button>
+            <input id="quantity-input" type="number" value="1" min="1" max="5" readonly>
+            <button type="button" class="stepper-btn" onclick="stepQty(1)">&plus;</button>
+          </div>
+        </div>
+
+        <!-- Primary Add to Cart Button -->
+        <div class="pdp-actions">
+          <button type="button" class="add-to-cart-large" onclick="alert('Added item to cart!')">
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Stock Status -->
+        <div class="pdp-status">
+          <div class="stock-indicator">
+            <span class="status-dot"></span>
+            <span>In Stock — Dispatched within 24 Hours from SoHo, NYC</span>
+          </div>
+        </div>
+
+        <!-- Product Accordions -->
+        <div class="product-accordions">
+          <details open>
+            <summary>Description &amp; Fit</summary>
+            <p id="pdp-desc">
+              The Kith Williams Heavyweight Hoodie is constructed from custom-milled 500 GSM cotton fleece. Featuring a double-layered hood, ribbed side gussets for mobility, and a subtle debossed tonal Kith serif logo across the chest.
+            </p>
+          </details>
+
+          <details>
+            <summary>Materials &amp; Care</summary>
+            <ul>
+              <li>100% custom-milled combed cotton fleece (500 GSM)</li>
+              <li>Ribbed cuffs, waistband, and ergonomic side panels</li>
+              <li>Pre-washed to minimize shrinkage</li>
+              <li>Machine wash cold inside-out, hang dry</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Shipping &amp; Complimentary Returns</summary>
+            <p>
+              Free standard shipping on orders over $150. Returns accepted within 14 days of delivery with original security tags attached.
+            </p>
+          </details>
+        </div>
+
+      </section>
+
     </div>
 
-    <!-- Related products -->
-    <section class="mt-16">
-      <h2 class="text-2xl font-bold mb-6">You May Also Like</h2>
-      <div class="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-      <div class="card">
-        <a href="product.html" class="block overflow-hidden bg-gray-100">
-          <img src="images/product-1.svg" alt="Box Logo Tee" class="product-img w-full aspect-[4/5] object-cover">
-        </a>
-        <div class="flex justify-between mt-3 text-sm">
-          <h3 class="font-medium">Box Logo Tee</h3>
-          <p class="text-gray-500">$48</p>
-        </div>
-        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-      <div class="card">
-        <a href="product.html" class="block overflow-hidden bg-gray-100">
-          <img src="images/product-3.svg" alt="Waffle Crewneck" class="product-img w-full aspect-[4/5] object-cover">
-        </a>
-        <div class="flex justify-between mt-3 text-sm">
-          <h3 class="font-medium">Waffle Crewneck</h3>
-          <p class="text-gray-500">$140</p>
-        </div>
-        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-      <div class="card">
-        <a href="product.html" class="block overflow-hidden bg-gray-100">
-          <img src="images/product-5.svg" alt="Nylon Track Shorts" class="product-img w-full aspect-[4/5] object-cover">
-        </a>
-        <div class="flex justify-between mt-3 text-sm">
-          <h3 class="font-medium">Nylon Track Shorts</h3>
-          <p class="text-gray-500">$98</p>
-        </div>
-        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
-      <div class="card">
-        <a href="product.html" class="block overflow-hidden bg-gray-100">
-          <img src="images/product-8.svg" alt="Quilted Vest" class="product-img w-full aspect-[4/5] object-cover">
-        </a>
-        <div class="flex justify-between mt-3 text-sm">
-          <h3 class="font-medium">Quilted Vest</h3>
-          <p class="text-gray-500">$225</p>
-        </div>
-        <button class="mt-3 w-full border border-black py-2 text-sm hover:bg-black hover:text-white">Add to Cart</button>
-      </div>
+    <!-- Related Products -->
+    <section class="related-section">
+      <h2 class="related-title">Complete The Look</h2>
+      <div class="product-grid">
+        
+        <article class="product-card">
+          <a href="product.html?id=salomon" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Kith Salomon">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Footwear</span>
+            <h3 class="card-title">Kith for Salomon XT-4 OG</h3>
+            <div class="card-bottom">
+              <span class="card-price">$200.00</span>
+              <a href="product.html?id=salomon" class="add-to-cart-btn">Add to Cart</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=duffle" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80" alt="Suede Duffle">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Accessories</span>
+            <h3 class="card-title">Suede Weekender Duffle</h3>
+            <div class="card-bottom">
+              <span class="card-price">$995.00</span>
+              <a href="product.html?id=duffle" class="add-to-cart-btn">Add to Cart</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=jacket" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80" alt="Suede Jacket">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Outerwear</span>
+            <h3 class="card-title">Suede Wayne Moto Jacket</h3>
+            <div class="card-bottom">
+              <span class="card-price">$1,495.00</span>
+              <a href="product.html?id=jacket" class="add-to-cart-btn">Add to Cart</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=court" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80" alt="Court Sneaker">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Footwear</span>
+            <h3 class="card-title">Vintage Court Classic Low</h3>
+            <div class="card-bottom">
+              <span class="card-price">$175.00</span>
+              <a href="product.html?id=court" class="add-to-cart-btn">Add to Cart</a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
   </main>
 
+  <!-- ================= IDENTICAL FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html" class="kith-boxed-logo footer-logo">KITH</a>
+          <p class="brand-text">
+            Established in New York City in 2011. Kith operates as a multifunctional lifestyle brand and progressive retail establishment.
+          </p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="ENTER YOUR EMAIL FOR EARLY ACCESS" required>
+            <button type="submit">JOIN</button>
+          </form>
+        </div>
 
-  <footer class="bg-black text-white mt-16">
-    <div class="grid grid-cols-2 gap-8 p-8 md:grid-cols-4 md:px-12">
-      <div class="col-span-2 md:col-span-1">
-        <p class="text-xl font-bold tracking-widest">STUDIO27</p>
-        <p class="mt-3 text-sm text-gray-400">Everyday clothing in small runs.</p>
+        <div class="footer-links-group">
+          <div class="link-col">
+            <h4>EXPLORE</h4>
+            <ul>
+              <li><a href="index.html#products">Monday Program&trade;</a></li>
+              <li><a href="index.html#editorial">Kith Lookbooks</a></li>
+              <li><a href="index.html#editorial">Kith Treats</a></li>
+              <li><a href="index.html#products">Collaborations</a></li>
+            </ul>
+          </div>
+
+          <div class="link-col">
+            <h4>CUSTOMER CARE</h4>
+            <ul>
+              <li><a href="#">Order Tracking</a></li>
+              <li><a href="#">Shipping &amp; Delivery</a></li>
+              <li><a href="#">Returns &amp; Exchanges</a></li>
+              <li><a href="#">Footwear Sizing</a></li>
+            </ul>
+          </div>
+
+          <div class="link-col">
+            <h4>FLAGSHIPS</h4>
+            <ul>
+              <li><a href="#">SoHo, New York</a></li>
+              <li><a href="#">Beverly Hills, CA</a></li>
+              <li><a href="#">Paris, France</a></li>
+              <li><a href="#">Tokyo, Shibuya</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div>
-        <h3 class="font-semibold mb-3">Shop</h3>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="index.html">New arrivals</a></li>
-          <li><a href="index.html">Men</a></li>
-          <li><a href="index.html">Women</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-3">Help</h3>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">Returns</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="col-span-2 md:col-span-1">
-        <h3 class="font-semibold mb-3">Newsletter</h3>
-        <div class="flex">
-          <input type="email" placeholder="Email address" class="min-w-0 flex-1 px-3 py-2 text-black text-sm">
-          <button class="bg-white text-black px-4 text-sm font-medium">Join</button>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KITH NYC LLC &bull; Assignment 2 Coursework</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <span>United States (USD $)</span>
         </div>
       </div>
     </div>
-    <p class="border-t border-gray-700 text-center text-xs text-gray-400 py-4">&copy; 2026 STUDIO27. Student project.</p>
   </footer>
+
+  <!-- DYNAMIC PRODUCT DATA SCRIPT (Shows exact item clicked) -->
+  <script>
+    const productsData = {
+      hoodie: {
+        title: "Kith Williams Heavyweight Hoodie",
+        price: "$165",
+        colour: "Charcoal",
+        image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=85",
+        desc: "The Kith Williams Heavyweight Hoodie is constructed from custom-milled 500 GSM cotton fleece. Featuring a double-layered hood, ribbed side gussets for mobility, and a subtle debossed tonal Kith serif logo across the chest."
+      },
+      salomon: {
+        title: "Kith for Salomon XT-4 OG",
+        price: "$200",
+        colour: "Turbulence / Vanilla Ice / Sharkskin",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85",
+        desc: "The Kith for Salomon XT-4 OG celebrates technical trail engineering rooted in archival heritage. Featuring a dual-density EVA midsole, full-length Agile Chassis System (ACS) for stability, and breathable engineered mesh upper."
+      },
+      jacket: {
+        title: "Kith Suede Wayne Moto Jacket",
+        price: "$1,495",
+        colour: "Espresso Brown",
+        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85",
+        desc: "Crafted in Italy from supple goat nubuck suede. Fully lined in silky cupro with antiqued silver Raccagni hardware and custom debossed Kith branding."
+      },
+      duffle: {
+        title: "Embroidered Suede Weekender Duffle",
+        price: "$995",
+        colour: "Camel Nubuck / Charcoal",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=85",
+        desc: "An archival Monday Program silhouette. Premium Italian calf suede accented with signature chain-stitch monogram script and reinforced leather top handles."
+      },
+      alonzo: {
+        title: "Kith Vintage Leather Alonzo Jacket",
+        price: "$1,495",
+        colour: "Washed Black",
+        image: "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=1200&q=85",
+        desc: "Heavyweight vintage-washed calfskin tailored with a relaxed boxy cut, horn buttons, and contrast interior lining."
+      },
+      varsity: {
+        title: "Melton Wool Studded Varsity Jacket",
+        price: "$695",
+        colour: "Midnight Navy / Bone",
+        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1200&q=85",
+        desc: "Custom 32oz melton wool body paired with buttery grain leather sleeves, custom chain-stitched chest patches, and antique brass snap closure."
+      },
+      crewneck: {
+        title: "Kith Serif Crewneck Sweatshirt",
+        price: "$145",
+        colour: "Heather Oat",
+        image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1200&q=85",
+        desc: "450 GSM dry-touch French terry featuring high-density raised embroidery of the classic Kith Serif logo across the chest."
+      },
+      court: {
+        title: "Kith Vintage Court Classic Low",
+        price: "$175",
+        colour: "Chalk White / Forest Green",
+        image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1200&q=85",
+        desc: "Handcrafted in Portugal from smooth nappa leather with an off-white cupsole, custom gold foil branding, and terrycloth lining."
+      },
+      fringe: {
+        title: "Kit Harington Winter Fringe Moto Jacket",
+        price: "$1,695",
+        colour: "Raven Black",
+        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2400&q=90",
+        desc: "As seen on Kit Harington for Kith Winter 2026. Hand-cut leather fringe across chest and sleeves, custom quilted lining, and sterling silver hardware."
+      },
+      coat: {
+        title: "Kith Winter Tailored Double-Breasted Coat",
+        price: "$1,250",
+        colour: "Charcoal Heather",
+        image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=2400&q=90",
+        desc: "Pure double-faced virgin wool overcoat with sharp peak lapels, horn buttons, and deep welt pockets. Designed for timeless layering."
+      }
+    };
+
+    // Read ID from URL parameter (e.g. product.html?id=salomon)
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id') || 'hoodie';
+    const product = productsData[productId] || productsData.hoodie;
+
+    // Apply product details dynamically
+    document.getElementById('pdp-img').src = product.image;
+    document.getElementById('thumb-1').src = product.image;
+    document.getElementById('pdp-title').textContent = product.title;
+    document.getElementById('pdp-price').textContent = product.price;
+    document.getElementById('pdp-colour').textContent = product.colour;
+    document.getElementById('pdp-desc').textContent = product.desc;
+    document.getElementById('breadcrumb-title').textContent = product.title;
+    document.title = product.title + " | Kith";
+
+    // Size Selection Handler
+    function selectSize(btn) {
+      document.querySelectorAll('.size-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Quantity Stepper Handler
+    function stepQty(amount) {
+      const input = document.getElementById('quantity-input');
+      let val = parseInt(input.value) + amount;
+      if (val >= 1 && val <= 5) input.value = val;
+    }
+
+    // Thumbnail Swap Handler
+    function swapImage(box) {
+      document.querySelectorAll('.thumb-box').forEach(b => b.classList.remove('active'));
+      box.classList.add('active');
+      const clickedSrc = box.querySelector('img').src;
+      document.getElementById('pdp-img').src = clickedSrc;
+    }
+  </script>
 
 </body>
 </html>
