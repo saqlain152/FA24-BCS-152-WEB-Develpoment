@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kith — Modern Luxury Streetwear &amp; Collaborative Footwear (CSC336)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <aside class="top-announcement-bar">
+    <div class="announcement-content">
+      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 674px &bull; ACCENT HUE = 158&deg;</span>
+      <span>COMPLIMENTARY DOMESTIC DISPATCH ON ORDERS OVER $150 &bull; SPRING 2026 EDITORIAL</span>
+      <span class="desktop-only">USD ($)</span>
+    </div>
+  </aside>
+
+  <!-- ================= HEADER (TRANSPARENT INITIALLY, WHITE ON SCROLL) ================= -->
+  <header class="site-header transparent-header">
+    <div class="header-inner">
+      
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation" onclick="document.querySelector('.mobile-accordion-group').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Navigation with TASK 1 Mega-Menu -->
+      <nav class="nav-left" aria-label="Main Navigation">
+        <a href="#products">NEW</a>
+        <a href="#products">MENS</a>
+        <a href="#products">WOMENS</a>
+        <a href="#products">KIDS</a>
+
+        <!-- TASK 1: "Shop by Category" Mega-Menu (K=5 Columns, Clickable links, hover bridge) -->
+        <div class="nav-item-mega">
+          <a href="#products" class="mega-trigger" tabindex="0">
+            Shop by Category <span style="font-size: 9px;">▾</span>
+          </a>
+
+          <!-- Full Width Desktop Mega Panel (K = 5 Columns) -->
+          <div class="mega-panel" role="region" aria-label="Shop by Category Mega Menu">
+            <div class="mega-panel-inner">
+              
+              <!-- Column 1 -->
+              <div class="mega-col">
+                <h4>Footwear Collabs</h4>
+                <ul>
+                  <li><a href="product.html?id=salomon">Salomon XT-4 OG</a></li>
+                  <li><a href="product.html?id=salomon">Salomon XT-VYGR 2</a></li>
+                  <li><a href="product.html?id=salomon">XT-4K Trail Mid</a></li>
+                  <li><a href="product.html?id=court">Court Classic Low</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 2 -->
+              <div class="mega-col">
+                <h4>Outerwear &amp; Coats</h4>
+                <ul>
+                  <li><a href="product.html?id=jacket">Suede Wayne Moto</a></li>
+                  <li><a href="product.html?id=alonzo">Vintage Alonzo Leather</a></li>
+                  <li><a href="product.html?id=varsity">Studded Wool Varsity</a></li>
+                  <li><a href="product.html?id=fringe">Winter Fringe Moto</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 3 -->
+              <div class="mega-col">
+                <h4>Apparel &amp; Hoodies</h4>
+                <ul>
+                  <li><a href="product.html?id=hoodie">Williams III Hoodie</a></li>
+                  <li><a href="product.html?id=crewneck">Serif Crewneck</a></li>
+                  <li><a href="product.html?id=hoodie">Cable Knit Pullover</a></li>
+                  <li><a href="product.html?id=crewneck">Vintage Pocket Tee</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 4 -->
+              <div class="mega-col">
+                <h4>Bags &amp; Travel</h4>
+                <ul>
+                  <li><a href="product.html?id=duffle">Suede Weekender Duffle</a></li>
+                  <li><a href="product.html?id=duffle">Leather Backpack</a></li>
+                  <li><a href="product.html?id=duffle">Crossbody Nylon Pouch</a></li>
+                  <li><a href="product.html?id=duffle">Heavy Canvas Tote</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 5 -->
+              <div class="mega-col">
+                <h4>Accessories</h4>
+                <ul>
+                  <li><a href="product.html?id=court">Classic Corduroy Cap</a></li>
+                  <li><a href="product.html?id=hoodie">Script Icon Beanie</a></li>
+                  <li><a href="product.html?id=jacket">Western Leather Belt</a></li>
+                  <li><a href="product.html?id=duffle">Mohair Tassel Scarf</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Center Boxed Logo -->
+      <div class="logo-container">
+        <a href="index.html" class="kith-boxed-logo">KITH</a>
+      </div>
+
+      <!-- Right Nav & TASK 3 Mini-Cart -->
+      <div class="nav-right">
+        <a href="#editorial" class="hospitality-link">HOSPITALITY</a>
+        
+        <a href="#" class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+
+        <!-- Cart Icon with Task 3 Badge & Dropdown -->
+        <div class="cart-btn-wrapper">
+          <a href="checkout.html" id="cart-icon-btn" class="cart-btn" aria-label="Shopping Bag">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge" id="cart-count-badge">0</span>
+          </a>
+
+          <!-- TASK 3: Interactive Mini-Cart Panel -->
+          <div class="mini-cart-dropdown" id="mini-cart">
+            <div class="mini-cart-header">
+              <h3>Shopping Bag (<span id="mini-cart-qty">0</span>)</h3>
+              <span style="font-size: 11px; color: #888;">Limit: 4 / item</span>
+            </div>
+            <ul class="mini-cart-items" id="mini-cart-items">
+              <li style="font-size: 12px; color: #888; text-align: center; padding: 20px 0;">Your bag is empty</li>
+            </ul>
+            <div class="mini-cart-footer">
+              <div class="mini-cart-total">
+                <span>Subtotal:</span>
+                <span id="mini-cart-total">$0.00</span>
+              </div>
+              <a href="checkout.html" class="mini-cart-checkout-btn">Proceed to Checkout &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Below BP: Mobile Accordion Group -->
+    <div class="mobile-accordion-group mobile-mega-accordion">
+      <div style="padding: 10px 20px; background: #fafafa; border-bottom: 1px solid #eee; font-size: 11px; font-weight: 800; color: var(--accent-color);">
+        SHOP BY CATEGORY (K = 5 ACCORDIONS)
+      </div>
+      
+      <details>
+        <summary>Footwear Collabs</summary>
+        <ul>
+          <li><a href="product.html?id=salomon">Salomon XT-4 OG</a></li>
+          <li><a href="product.html?id=salomon">Salomon XT-VYGR 2</a></li>
+          <li><a href="product.html?id=salomon">XT-4K Trail Mid</a></li>
+          <li><a href="product.html?id=court">Court Classic Low</a></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Outerwear &amp; Coats</summary>
+        <ul>
+          <li><a href="product.html?id=jacket">Suede Wayne Moto</a></li>
+          <li><a href="product.html?id=alonzo">Vintage Alonzo Leather</a></li>
+          <li><a href="product.html?id=varsity">Studded Wool Varsity</a></li>
+          <li><a href="product.html?id=fringe">Winter Fringe Moto</a></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Apparel &amp; Hoodies</summary>
+        <ul>
+          <li><a href="product.html?id=hoodie">Williams III Hoodie</a></li>
+          <li><a href="product.html?id=crewneck">Serif Crewneck</a></li>
+          <li><a href="product.html?id=hoodie">Cable Knit Pullover</a></li>
+          <li><a href="product.html?id=crewneck">Vintage Pocket Tee</a></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Bags &amp; Travel</summary>
+        <ul>
+          <li><a href="product.html?id=duffle">Suede Weekender Duffle</a></li>
+          <li><a href="product.html?id=duffle">Leather Backpack</a></li>
+          <li><a href="product.html?id=duffle">Crossbody Nylon Pouch</a></li>
+          <li><a href="product.html?id=duffle">Heavy Canvas Tote</a></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Accessories</summary>
+        <ul>
+          <li><a href="product.html?id=court">Classic Corduroy Cap</a></li>
+          <li><a href="product.html?id=hoodie">Script Icon Beanie</a></li>
+          <li><a href="product.html?id=jacket">Western Leather Belt</a></li>
+          <li><a href="product.html?id=duffle">Mohair Tassel Scarf</a></li>
+        </ul>
+      </details>
+    </div>
+  </header>
+
+  <!-- ================= 3 STACKED HERO EDITORIAL BANNERS ================= -->
+  
+  <!-- Banner 1: Kit Harington for Kith Winter -->
+  <section class="campaign-banner">
+    <a href="product.html?id=fringe" class="banner-link">
+      <div class="banner-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2400&q=90" alt="Kit Harington for Kith" class="banner-image">
+        <div class="banner-overlay"></div>
+      </div>
+      <div class="banner-content">
+        <span class="banner-subtitle">EDITORIAL FEATURE</span>
+        <h1 class="banner-title">Kit Harington for Kith Winter 2026</h1>
+        <p class="banner-desc">Handcrafted fringe leather moto jackets, heavy gauge turtlenecks, and archival tailoring.</p>
+        <span class="banner-cta">Discover Collection &rarr;</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Banner 2: Monday Program Suede Duffle Bags -->
+  <section class="campaign-banner">
+    <a href="product.html?id=duffle" class="banner-link">
+      <div class="banner-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=2400&q=90" alt="Monday Program Duffle Bags" class="banner-image">
+        <div class="banner-overlay"></div>
+      </div>
+      <div class="banner-content">
+        <span class="banner-subtitle">MONDAY PROGRAM&trade;</span>
+        <h2 class="banner-title">Embroidered Suede Weekender Duffle</h2>
+        <p class="banner-desc">Italian nubuck calfskin accented with bespoke chain-stitch script monogramming.</p>
+        <span class="banner-cta">Shop The Release &rarr;</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Banner 3: Kith Winter Lookbook -->
+  <section class="campaign-banner">
+    <a href="product.html?id=coat" class="banner-link">
+      <div class="banner-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=2400&q=90" alt="Winter Lookbook Tailoring" class="banner-image">
+        <div class="banner-overlay"></div>
+      </div>
+      <div class="banner-content">
+        <span class="banner-subtitle">SEASONAL LOOKBOOK</span>
+        <h2 class="banner-title">Kith Winter 2026 Lookbook</h2>
+        <p class="banner-desc">Double-breasted melton overcoats, tailored flannel trousers, and minimal leather goods.</p>
+        <span class="banner-cta">View Full Lookbook &rarr;</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ================= PRODUCT CATALOG SECTION ================= -->
+  <main id="products" class="catalog-section">
+    <div class="catalog-header">
+      <div>
+        <span class="section-tag">CATALOG DROPS</span>
+        <h2 class="section-title">Curated Releases</h2>
+      </div>
+    </div>
+
+    <!-- 8 Product Cards Wired to Task 3 Add-To-Cart -->
+    <div class="product-grid">
+
+      <!-- Card 1 -->
+      <article class="product-card">
+        <a href="product.html?id=hoodie" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=900&q=85" alt="Williams Hoodie">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Apparel</span>
+          <h3 class="card-title"><a href="product.html?id=hoodie">Kith Williams Heavyweight Hoodie</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$165.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="product-card">
+        <a href="product.html?id=salomon" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85" alt="Salomon XT-4">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Footwear</span>
+          <h3 class="card-title"><a href="product.html?id=salomon">Kith for Salomon XT-4 OG</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$200.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="product-card">
+        <a href="product.html?id=jacket" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85" alt="Suede Wayne Moto">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Outerwear</span>
+          <h3 class="card-title"><a href="product.html?id=jacket">Kith Suede Wayne Moto Jacket</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$1495.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="product-card">
+        <a href="product.html?id=duffle" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85" alt="Suede Duffle">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Accessories</span>
+          <h3 class="card-title"><a href="product.html?id=duffle">Kith Suede Weekender Duffle</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$995.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="product-card">
+        <a href="product.html?id=alonzo" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=900&q=85" alt="Vintage Alonzo">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Outerwear</span>
+          <h3 class="card-title"><a href="product.html?id=alonzo">Vintage Leather Alonzo Jacket</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$1495.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="product-card">
+        <a href="product.html?id=varsity" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=85" alt="Varsity Jacket">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Outerwear</span>
+          <h3 class="card-title"><a href="product.html?id=varsity">Melton Wool Studded Varsity</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$695.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="product-card">
+        <a href="product.html?id=crewneck" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=900&q=85" alt="Serif Crewneck">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Apparel</span>
+          <h3 class="card-title"><a href="product.html?id=crewneck">Kith Serif Crewneck Sweatshirt</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$145.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="product-card">
+        <a href="product.html?id=court" class="card-image-box">
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=85" alt="Court Sneaker">
+        </a>
+        <div class="card-info">
+          <span class="card-category">Footwear</span>
+          <h3 class="card-title"><a href="product.html?id=court">Kith Vintage Court Classic Low</a></h3>
+          <div class="card-bottom">
+            <span class="card-price">$175.00</span>
+            <button type="button" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ================= POST-PRODUCT EDITORIAL SPREAD ================= -->
+  <section id="editorial" class="editorial-spread">
+    <div class="spread-container">
+      <div class="spread-header">
+        <span class="section-tag">STORYTELLING</span>
+        <h2 class="section-title">The Soho Dispatch</h2>
+        <p class="section-desc">Behind the scenes at our New York design studio and international flagship spaces.</p>
+      </div>
+
+      <div class="spread-grid">
+        <article class="spread-card">
+          <div class="spread-img-box">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1000&q=80" alt="Tailoring Story">
+          </div>
+          <span class="spread-cat">Story 01 &bull; Tailoring</span>
+          <h3 class="spread-title">The Heritage Palettes &amp; Textures</h3>
+          <p class="spread-text">Exploring lightweight unlined suits and textured Italian wools tailored for transitional seasons.</p>
+        </article>
+
+        <article class="spread-card">
+          <div class="spread-img-box">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1000&q=80" alt="Craftsmanship Story">
+          </div>
+          <span class="spread-cat">Story 02 &bull; Craftsmanship</span>
+          <h3 class="spread-title">Nubuck Leathers &amp; Custom Dyeing</h3>
+          <p class="spread-text">An intimate view of the Portugal atelier finishing our custom dyed Monday Program accessories.</p>
+        </article>
+
+        <article class="spread-card">
+          <div class="spread-img-box">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80" alt="Flagship Design">
+          </div>
+          <span class="spread-cat">Story 03 &bull; Architecture</span>
+          <h3 class="spread-title">Flagship Spaces: SoHo to Paris</h3>
+          <p class="spread-text">How our interior architecture integrates Italian travertine and custom sneaker cast displays.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONSISTENT KITH FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html" class="kith-boxed-logo footer-logo">KITH</a>
+          <p class="brand-text">
+            Established in New York City in 2011. Kith operates as a multifunctional lifestyle brand and progressive retail establishment.
+          </p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="ENTER YOUR EMAIL FOR EARLY ACCESS" required>
+            <button type="submit">JOIN</button>
+          </form>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="link-col">
+            <h4>EXPLORE</h4>
+            <ul>
+              <li><a href="#products">Monday Program&trade;</a></li>
+              <li><a href="#editorial">Kith Lookbooks</a></li>
+              <li><a href="#editorial">Kith Treats</a></li>
+              <li><a href="#products">Collaborations</a></li>
+            </ul>
+          </div>
+
+          <div class="link-col">
+            <h4>CUSTOMER CARE</h4>
+            <ul>
+              <li><a href="#">Order Tracking</a></li>
+              <li><a href="#">Shipping &amp; Delivery</a></li>
+              <li><a href="#">Returns &amp; Exchanges</a></li>
+              <li><a href="#">Footwear Sizing</a></li>
+            </ul>
+          </div>
+
+          <div class="link-col">
+            <h4>FLAGSHIPS</h4>
+            <ul>
+              <li><a href="#">SoHo, New York</a></li>
+              <li><a href="#">Beverly Hills, CA</a></li>
+              <li><a href="#">Paris, France</a></li>
+              <li><a href="#">Tokyo, Shibuya</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KITH NYC LLC &bull; Midterm Examination CSC336</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <span>Breakpoint BP = 674px</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TASK 3: Plain JavaScript for Working Cart Badge & Mini-Cart -->
+  <script src="script.js"></script>
+
+  <!-- NAVBAR SCROLL SCRIPT: Transparent initially -> White on scroll -->
+  <script>
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('.site-header.transparent-header');
+      if (header) {
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

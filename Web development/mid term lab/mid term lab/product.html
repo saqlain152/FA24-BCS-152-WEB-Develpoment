@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail | Kith Official Store</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-announcement-bar">
+    <div class="announcement-content">
+      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 674px &bull; ACCENT HUE = 158&deg;</span>
+      <span>COMPLIMENTARY DOMESTIC DISPATCH ON ORDERS OVER $150</span>
+      <span class="desktop-only">USD ($)</span>
+    </div>
+  </aside>
+
+  <!-- Header with Cart Badge & Dropdown -->
+  <header class="site-header">
+    <div class="header-inner">
+      <nav class="nav-left">
+        <a href="index.html">← Back to Store</a>
+        <a href="index.html#products">Catalog Releases</a>
+      </nav>
+
+      <div class="logo-container">
+        <a href="index.html" class="kith-boxed-logo">KITH</a>
+      </div>
+
+      <div class="nav-right">
+        <a href="index.html#editorial" class="hospitality-link">HOSPITALITY</a>
+        
+        <div class="cart-btn-wrapper">
+          <a href="checkout.html" id="cart-icon-btn" class="cart-btn" aria-label="Shopping Bag">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge" id="cart-count-badge">0</span>
+          </a>
+
+          <!-- Interactive Mini-Cart Panel -->
+          <div class="mini-cart-dropdown" id="mini-cart">
+            <div class="mini-cart-header">
+              <h3>Shopping Bag (<span id="mini-cart-qty">0</span>)</h3>
+              <span style="font-size: 11px; color: #888;">Limit: 4 / item</span>
+            </div>
+            <ul class="mini-cart-items" id="mini-cart-items">
+              <li style="font-size: 12px; color: #888; text-align: center; padding: 20px 0;">Your bag is empty</li>
+            </ul>
+            <div class="mini-cart-footer">
+              <div class="mini-cart-total">
+                <span>Subtotal:</span>
+                <span id="mini-cart-total">$0.00</span>
+              </div>
+              <a href="checkout.html" class="mini-cart-checkout-btn">Proceed to Checkout &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs Navigation -->
+  <nav class="breadcrumb-nav">
+    <div class="breadcrumb-container">
+      <a href="index.html">Home</a>
+      <span class="divider">/</span>
+      <a href="index.html#products">New Arrivals</a>
+      <span class="divider">/</span>
+      <span class="current" id="breadcrumb-title">Product Detail</span>
+    </div>
+  </nav>
+
+  <!-- Product Detail Section -->
+  <main class="product-detail-container">
+    <div class="product-detail-layout">
+      
+      <!-- Gallery Column -->
+      <section class="product-gallery">
+        <div class="main-image-frame">
+          <img 
+            id="pdp-img"
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85" 
+            alt="Product Primary Image"
+            class="main-product-img"
+          >
+        </div>
+
+        <div class="gallery-thumbnails">
+          <div class="thumb-box active" onclick="swapImage(this)">
+            <img id="thumb-1" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Angle 1">
+          </div>
+          <div class="thumb-box" onclick="swapImage(this)">
+            <img id="thumb-2" src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=400&q=80" alt="Angle 2">
+          </div>
+          <div class="thumb-box" onclick="swapImage(this)">
+            <img id="thumb-3" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80" alt="Angle 3">
+          </div>
+        </div>
+      </section>
+
+      <!-- Sticky Buy Panel -->
+      <section class="product-buy-panel">
+        <div class="product-header-block">
+          <h1 class="pdp-title" id="pdp-title">Kith for Salomon XT-4 OG</h1>
+          <div class="pdp-price" id="pdp-price">$200.00</div>
+          <div class="pdp-colour">Colour: <span id="pdp-colour">Turbulence / Sharkskin</span></div>
+        </div>
+
+        <!-- Size Selector -->
+        <div class="pdp-section">
+          <div class="size-header">
+            <span class="label-text">Select Size</span>
+            <a href="#" class="size-guide-link">Size Guide</a>
+          </div>
+
+          <div class="size-options-grid">
+            <button type="button" class="size-pill" onclick="selectSize(this)">S</button>
+            <button type="button" class="size-pill active" onclick="selectSize(this)">M</button>
+            <button type="button" class="size-pill" onclick="selectSize(this)">L</button>
+            <button type="button" class="size-pill" onclick="selectSize(this)">XL</button>
+            <button type="button" class="size-pill" onclick="selectSize(this)">XXL</button>
+          </div>
+        </div>
+
+        <!-- Quantity Stepper -->
+        <div class="pdp-section">
+          <label for="quantity-input" class="label-text">Quantity</label>
+          <div class="quantity-stepper">
+            <button type="button" class="stepper-btn" onclick="stepQty(-1)">&minus;</button>
+            <input id="quantity-input" type="number" value="1" min="1" max="5" readonly>
+            <button type="button" class="stepper-btn" onclick="stepQty(1)">&plus;</button>
+          </div>
+        </div>
+
+        <!-- Primary Add to Cart Button -->
+        <div class="pdp-actions">
+          <button type="button" class="add-to-cart-large" id="pdp-add-btn" onclick="addCurrentProductToCart()">
+            Add to Cart &bull; In Stock
+          </button>
+        </div>
+
+        <!-- Stock Status -->
+        <div class="pdp-status">
+          <div class="stock-indicator">
+            <span class="status-dot"></span>
+            <span>In Stock — Dispatched within 24 Hours from SoHo, NYC Flagship</span>
+          </div>
+        </div>
+
+        <!-- Product Accordions -->
+        <div class="product-accordions">
+          <details open>
+            <summary>Description &amp; Fit</summary>
+            <p id="pdp-desc">
+              The Kith for Salomon XT-4 OG celebrates technical trail engineering rooted in archival heritage. Featuring a dual-density EVA midsole, full-length Agile Chassis System (ACS) for stability, and breathable engineered mesh upper.
+            </p>
+          </details>
+
+          <details>
+            <summary>Materials &amp; Care</summary>
+            <ul>
+              <li>Technical abrasion-resistant TPU film and mesh upper</li>
+              <li>Mud Contagrip&reg; outsole with deep geometric traction lugs</li>
+              <li>Patented Quicklace&trade; one-pull tightening system</li>
+              <li>Molded OrthoLite&reg; sockliner for step-in cushion</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Shipping &amp; Complimentary Returns</summary>
+            <p>
+              Free standard shipping on orders over $150. Returns accepted within 14 days of delivery with original security tags attached.
+            </p>
+          </details>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Complete The Look Recommendations -->
+    <section class="related-section">
+      <h2 class="related-title">Complete The Look</h2>
+      <div class="product-grid">
+        <article class="product-card">
+          <a href="product.html?id=jacket" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80" alt="Wayne Moto">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Outerwear</span>
+            <h3 class="card-title">Kith Suede Wayne Moto Jacket</h3>
+            <div class="card-bottom">
+              <span class="card-price">$1495.00</span>
+              <a href="product.html?id=jacket" class="add-to-cart-btn">View</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=duffle" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80" alt="Suede Duffle">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Accessories</span>
+            <h3 class="card-title">Suede Weekender Duffle</h3>
+            <div class="card-bottom">
+              <span class="card-price">$995.00</span>
+              <a href="product.html?id=duffle" class="add-to-cart-btn">View</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=hoodie" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80" alt="Williams Hoodie">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Apparel</span>
+            <h3 class="card-title">Kith Williams Heavyweight Hoodie</h3>
+            <div class="card-bottom">
+              <span class="card-price">$165.00</span>
+              <a href="product.html?id=hoodie" class="add-to-cart-btn">View</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=court" class="card-image-box">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80" alt="Court Classic">
+          </a>
+          <div class="card-info">
+            <span class="card-category">Footwear</span>
+            <h3 class="card-title">Vintage Court Classic Low</h3>
+            <div class="card-bottom">
+              <span class="card-price">$175.00</span>
+              <a href="product.html?id=court" class="add-to-cart-btn">View</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Consistent Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 KITH NYC LLC &bull; Midterm Examination CSC336</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <span>Breakpoint BP = 674px</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Task 3 Cart & Dynamic Loader -->
+  <script src="script.js"></script>
+  <script>
+    const productsData = {
+      salomon: {
+        title: "Kith for Salomon XT-4 OG",
+        price: "$200.00",
+        colour: "Turbulence / Vanilla Ice / Sharkskin",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85",
+        desc: "The Kith for Salomon XT-4 OG celebrates technical trail engineering rooted in archival heritage. Featuring a dual-density EVA midsole, full-length Agile Chassis System (ACS) for stability, and breathable engineered mesh upper."
+      },
+      hoodie: {
+        title: "Kith Williams Heavyweight Hoodie",
+        price: "$165.00",
+        colour: "Charcoal Heather",
+        image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=85",
+        desc: "The Kith Williams Heavyweight Hoodie is constructed from custom-milled 500 GSM cotton fleece. Featuring a double-layered hood, ribbed side gussets for mobility, and a subtle debossed tonal Kith serif logo across the chest."
+      },
+      jacket: {
+        title: "Kith Suede Wayne Moto Jacket",
+        price: "$1495.00",
+        colour: "Espresso Brown",
+        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85",
+        desc: "Crafted in Italy from supple goat nubuck suede. Fully lined in silky cupro with antiqued silver Raccagni hardware and custom debossed Kith branding."
+      },
+      duffle: {
+        title: "Embroidered Suede Weekender Duffle",
+        price: "$995.00",
+        colour: "Camel Nubuck / Charcoal",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=85",
+        desc: "An archival Monday Program silhouette. Premium Italian calf suede accented with signature chain-stitch monogram script and reinforced leather top handles."
+      },
+      alonzo: {
+        title: "Vintage Leather Alonzo Jacket",
+        price: "$1495.00",
+        colour: "Washed Black",
+        image: "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=1200&q=85",
+        desc: "Heavyweight vintage-washed calfskin tailored with a relaxed boxy cut, horn buttons, and contrast interior lining."
+      },
+      varsity: {
+        title: "Melton Wool Studded Varsity",
+        price: "$695.00",
+        colour: "Midnight Navy / Bone",
+        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1200&q=85",
+        desc: "Custom 32oz melton wool body paired with buttery grain leather sleeves, custom chain-stitched chest patches, and antique brass snap closure."
+      },
+      crewneck: {
+        title: "Kith Serif Crewneck Sweatshirt",
+        price: "$145.00",
+        colour: "Heather Oat",
+        image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1200&q=85",
+        desc: "450 GSM dry-touch French terry featuring high-density raised embroidery of the classic Kith Serif logo across the chest."
+      },
+      court: {
+        title: "Kith Vintage Court Classic Low",
+        price: "$175.00",
+        colour: "Chalk White / Forest Green",
+        image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1200&q=85",
+        desc: "Handcrafted in Portugal from smooth nappa leather with an off-white cupsole, custom gold foil branding, and terrycloth lining."
+      },
+      fringe: {
+        title: "Kit Harington Winter Fringe Moto",
+        price: "$1695.00",
+        colour: "Raven Black",
+        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2400&q=90",
+        desc: "As seen on Kit Harington for Kith Winter 2026. Hand-cut leather fringe across chest and sleeves, custom quilted lining, and sterling silver hardware."
+      },
+      coat: {
+        title: "Kith Winter Tailored Double-Breasted Coat",
+        price: "$1250.00",
+        colour: "Charcoal Heather",
+        image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=2400&q=90",
+        desc: "Pure double-faced virgin wool overcoat with sharp peak lapels, horn buttons, and deep welt pockets. Designed for timeless layering."
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodId = urlParams.get('id') || 'salomon';
+    const activeProd = productsData[prodId] || productsData.salomon;
+
+    document.getElementById('pdp-img').src = activeProd.image;
+    document.getElementById('thumb-1').src = activeProd.image;
+    document.getElementById('pdp-title').textContent = activeProd.title;
+    document.getElementById('pdp-price').textContent = activeProd.price;
+    document.getElementById('pdp-colour').textContent = activeProd.colour;
+    document.getElementById('pdp-desc').textContent = activeProd.desc;
+    document.getElementById('breadcrumb-title').textContent = activeProd.title;
+    document.title = activeProd.title + " | Kith";
+
+    function selectSize(btn) {
+      document.querySelectorAll('.size-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function stepQty(amount) {
+      const input = document.getElementById('quantity-input');
+      let val = parseInt(input.value) + amount;
+      if (val >= 1 && val <= 5) input.value = val;
+    }
+
+    function swapImage(box) {
+      document.querySelectorAll('.thumb-box').forEach(b => b.classList.remove('active'));
+      box.classList.add('active');
+      document.getElementById('pdp-img').src = box.querySelector('img').src;
+    }
+
+    function addCurrentProductToCart() {
+      const qty = parseInt(document.getElementById('quantity-input').value) || 1;
+      if (window.CartAPI) {
+        window.CartAPI.addItem(activeProd.title, parseFloat(activeProd.price.replace(/[^0-9.]/g, '')), qty);
+      }
+    }
+  </script>
+
+</body>
+</html>
