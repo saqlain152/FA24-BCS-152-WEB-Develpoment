@@ -15,7 +15,7 @@
   <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
   <aside class="top-announcement-bar">
     <div class="announcement-content">
-      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 674px &bull; ACCENT HUE = 158&deg;</span>
+      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 652px &bull; ACCENT HUE = 4&deg;</span>
       <span>COMPLIMENTARY DOMESTIC DISPATCH ON ORDERS OVER $150 &bull; SPRING 2026 EDITORIAL</span>
       <span class="desktop-only">USD ($)</span>
     </div>
@@ -23,12 +23,15 @@
 
   <!-- ================= HEADER (TRANSPARENT INITIALLY, WHITE ON SCROLL) ================= -->
   <header class="site-header transparent-header">
+    <!-- CSS-only hamburger: this checkbox + its label open the mobile menu (no JavaScript) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle Navigation">
+
     <div class="header-inner">
-      
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-menu-btn" aria-label="Toggle Navigation" onclick="document.querySelector('.mobile-accordion-group').classList.toggle('active')">
+
+      <!-- Mobile Hamburger Button (label for the checkbox above) -->
+      <label for="nav-toggle" class="mobile-menu-btn" aria-hidden="true">
         <span></span><span></span><span></span>
-      </button>
+      </label>
 
       <!-- Navigation with TASK 1 Mega-Menu -->
       <nav class="nav-left" aria-label="Main Navigation">
@@ -37,13 +40,13 @@
         <a href="#products">WOMENS</a>
         <a href="#products">KIDS</a>
 
-        <!-- TASK 1: "Shop by Category" Mega-Menu (K=5 Columns, Clickable links, hover bridge) -->
+        <!-- TASK 1: "Shop by Category" Mega-Menu (K=4 Columns, Clickable links, hover bridge) -->
         <div class="nav-item-mega">
           <a href="#products" class="mega-trigger" tabindex="0">
             Shop by Category <span style="font-size: 9px;">▾</span>
           </a>
 
-          <!-- Full Width Desktop Mega Panel (K = 5 Columns) -->
+          <!-- Full Width Desktop Mega Panel (K = 4 Columns) -->
           <div class="mega-panel" role="region" aria-label="Shop by Category Mega Menu">
             <div class="mega-panel-inner">
               
@@ -91,17 +94,6 @@
                 </ul>
               </div>
 
-              <!-- Column 5 -->
-              <div class="mega-col">
-                <h4>Accessories</h4>
-                <ul>
-                  <li><a href="product.html?id=court">Classic Corduroy Cap</a></li>
-                  <li><a href="product.html?id=hoodie">Script Icon Beanie</a></li>
-                  <li><a href="product.html?id=jacket">Western Leather Belt</a></li>
-                  <li><a href="product.html?id=duffle">Mohair Tassel Scarf</a></li>
-                </ul>
-              </div>
-
             </div>
           </div>
         </div>
@@ -138,10 +130,10 @@
           <div class="mini-cart-dropdown" id="mini-cart">
             <div class="mini-cart-header">
               <h3>Shopping Bag (<span id="mini-cart-qty">0</span>)</h3>
-              <span style="font-size: 11px; color: #888;">Limit: 4 / item</span>
+              <span style="font-size: 11px; color: #888;">Limit: 2 / item</span>
             </div>
             <ul class="mini-cart-items" id="mini-cart-items">
-              <li style="font-size: 12px; color: #888; text-align: center; padding: 20px 0;">Your bag is empty</li>
+              <li class="mini-cart-empty">Your bag is empty</li>
             </ul>
             <div class="mini-cart-footer">
               <div class="mini-cart-total">
@@ -156,10 +148,18 @@
       </div>
     </div>
 
-    <!-- Below BP: Mobile Accordion Group -->
-    <div class="mobile-accordion-group mobile-mega-accordion">
-      <div style="padding: 10px 20px; background: #fafafa; border-bottom: 1px solid #eee; font-size: 11px; font-weight: 800; color: var(--accent-color);">
-        SHOP BY CATEGORY (K = 5 ACCORDIONS)
+    <!-- Below BP: Collapsed (hamburger) menu with the K = 4 groups as an accordion -->
+    <nav class="mobile-accordion-group mobile-mega-accordion" aria-label="Mobile Navigation">
+      <ul class="mobile-main-links">
+        <li><a href="#products">NEW</a></li>
+        <li><a href="#products">MENS</a></li>
+        <li><a href="#products">WOMENS</a></li>
+        <li><a href="#products">KIDS</a></li>
+        <li><a href="#editorial">HOSPITALITY</a></li>
+      </ul>
+
+      <div class="mobile-accordion-heading">
+        SHOP BY CATEGORY (K = 4 ACCORDIONS)
       </div>
       
       <details>
@@ -201,17 +201,7 @@
           <li><a href="product.html?id=duffle">Heavy Canvas Tote</a></li>
         </ul>
       </details>
-
-      <details>
-        <summary>Accessories</summary>
-        <ul>
-          <li><a href="product.html?id=court">Classic Corduroy Cap</a></li>
-          <li><a href="product.html?id=hoodie">Script Icon Beanie</a></li>
-          <li><a href="product.html?id=jacket">Western Leather Belt</a></li>
-          <li><a href="product.html?id=duffle">Mohair Tassel Scarf</a></li>
-        </ul>
-      </details>
-    </div>
+    </nav>
   </header>
 
   <!-- ================= 3 STACKED HERO EDITORIAL BANNERS ================= -->
@@ -492,7 +482,7 @@
         <div class="legal-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
-          <span>Breakpoint BP = 674px</span>
+          <span>Breakpoint BP = 652px</span>
         </div>
       </div>
     </div>

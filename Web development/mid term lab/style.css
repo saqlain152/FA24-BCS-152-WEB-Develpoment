@@ -1,6 +1,6 @@
 /* ==========================================================================
    MASTER COMPLETE STYLESHEET (CSC336 LAB MIDTERM)
-   Personal Formula Values: N=74, BP=674px, H=158deg, K=5, Limit=4
+   Personal Formula Values: N=52, BP=652px, H=4deg, K=4, Limit=2
    ========================================================================== */
 
 /* --------------------------------------------------
@@ -17,12 +17,12 @@
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Midterm Exam Formula Variables (N = 74) */
-  --accent-hue: 158;                                    /* H = (N * 7) mod 360 */
+  /* Midterm Exam Formula Variables (N = 52) */
+  --accent-hue: 4;                                      /* H = (N * 7) mod 360 */
   --accent-color: hsl(var(--accent-hue), 70%, 45%);     /* Required accent colour */
   --accent-light: hsl(var(--accent-hue), 70%, 94%);
-  --breakpoint-bp: 674px;                               /* BP = 600 + N */
-  --mega-cols: 5;                                       /* K = (N mod 3) + 3 */
+  --breakpoint-bp: 652px;                               /* BP = 600 + N */
+  --mega-cols: 4;                                       /* K = (N mod 3) + 3 */
 }
 
 *, *::before, *::after {
@@ -98,6 +98,8 @@ button {
   transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
 }
 
+/* No position here on purpose: the mega panel and mobile menu are positioned
+   against .site-header, so they span the full width of the screen. */
 .header-inner {
   max-width: 1480px;
   margin: 0 auto;
@@ -106,7 +108,6 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 }
 
 .nav-left {
@@ -182,6 +183,8 @@ button {
   flex-direction: column;
   gap: 4px;
   width: 24px;
+  padding: 6px 0;
+  cursor: pointer;
 }
 
 .mobile-menu-btn span {
@@ -189,16 +192,47 @@ button {
   height: 2px;
   background-color: currentColor;
   width: 100%;
+  transition: var(--transition);
+}
+
+/* Hidden checkbox that drives the CSS-only hamburger menu.
+   Visually hidden (not display:none) so it can still be reached with Tab. */
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.nav-toggle:focus-visible ~ .header-inner .mobile-menu-btn {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Hamburger turns into an X while the menu is open */
+.nav-toggle:checked ~ .header-inner .mobile-menu-btn span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle:checked ~ .header-inner .mobile-menu-btn span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle:checked ~ .header-inner .mobile-menu-btn span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* --------------------------------------------------
    4. TRANSPARENT-TO-WHITE NAVBAR (HOMEPAGE)
    -------------------------------------------------- */
+/* Sticky (not fixed) so it sits below the announcement bar instead of under it.
+   The negative margin (= header height 72px + 1px border) lets the first banner
+   slide up behind the transparent header. */
 .site-header.transparent-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
+  margin-bottom: -73px;
   background-color: transparent;
   border-bottom: 1px solid transparent;
   color: #ffffff;
@@ -230,6 +264,21 @@ button {
 
 .site-header.transparent-header.scrolled .icon-btn svg,
 .site-header.transparent-header.scrolled .cart-btn svg {
+  stroke: var(--color-black);
+}
+
+/* While the mobile menu is open, the header turns white so it reads as one panel */
+.site-header.transparent-header:has(.nav-toggle:checked) {
+  background-color: rgba(255, 255, 255, 0.98);
+  color: var(--color-black);
+}
+
+.site-header.transparent-header:has(.nav-toggle:checked) .kith-boxed-logo {
+  border-color: var(--color-black);
+  color: var(--color-black);
+}
+
+.site-header.transparent-header:has(.nav-toggle:checked) .cart-btn svg {
   stroke: var(--color-black);
 }
 
@@ -330,7 +379,7 @@ button {
   font-weight: 500;
 }
 
-@media (min-width: 674px) {
+@media (min-width: 652px) {
   .nav-item-mega:hover .mega-panel,
   .nav-item-mega:focus-within .mega-panel,
   .mega-panel:hover {
@@ -339,23 +388,82 @@ button {
     visibility: visible !important;
     pointer-events: auto !important;
   }
-  .mobile-accordion-group {
+  .mobile-accordion-group,
+  .nav-toggle {
     display: none !important;
   }
 }
 
-@media (max-width: 673.98px) {
+/* From BP up to 1024px the navbar is tight: smaller gaps and letter-spacing so
+   "Shop by Category" stays on one line and doesn't run into the logo */
+@media (min-width: 652px) and (max-width: 1024px) {
+  .header-inner {
+    padding: 0 16px;
+  }
+  .nav-left {
+    gap: 14px;
+    letter-spacing: 0.1em;
+  }
+  .mega-trigger {
+    white-space: nowrap;
+  }
+  .nav-right {
+    gap: 14px;
+  }
+  .hospitality-link {
+    letter-spacing: 0.1em;
+    margin-right: 0;
+  }
+  .mega-panel-inner {
+    padding: 28px 20px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 651.98px) {
   .mega-panel {
     display: none !important;
   }
   .nav-item-mega > .mega-trigger {
     display: none;
   }
+  /* Collapsed menu: hidden until the hamburger checkbox is ticked.
+     Absolute so it drops over the page instead of pushing the banner down. */
   .mobile-accordion-group {
-    display: block;
-    width: 100%;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 73px);
+    overflow-y: auto;
     background: #ffffff;
+    color: var(--color-black);
     border-top: 1px solid var(--color-gray-light);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+  }
+  .nav-toggle:checked ~ .mobile-accordion-group {
+    display: block;
+  }
+  .mobile-main-links {
+    list-style: none;
+    border-bottom: 1px solid #eaeaea;
+    padding: 6px 0;
+  }
+  .mobile-main-links a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+  .mobile-accordion-heading {
+    padding: 10px 20px;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent-color);
   }
   .mobile-mega-accordion details {
     border-bottom: 1px solid #eaeaea;
@@ -814,6 +922,12 @@ button {
   background-color: #262626;
 }
 
+.add-to-cart-large:disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
 .pdp-status {
   margin-top: 20px;
   padding-bottom: 20px;
@@ -966,7 +1080,7 @@ button {
   position: absolute;
   top: calc(100% + 14px);
   right: 0;
-  width: 340px;
+  width: min(340px, calc(100vw - 32px));
   background: #ffffff;
   color: #0a0a0a !important;
   border: 1px solid var(--color-gray-light);
@@ -1001,6 +1115,13 @@ button {
   max-height: 260px;
   overflow-y: auto;
   list-style: none;
+}
+
+.mini-cart-empty {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
 }
 
 .mini-cart-item {
@@ -1103,6 +1224,7 @@ button.add-to-cart-btn[disabled] {
   background-color: #ffffff;
   padding: 28px;
   border-radius: 4px;
+  min-width: 0; /* fieldsets default to min-content width and can overflow a grid column */
 }
 
 .checkout-form legend {
@@ -1167,12 +1289,30 @@ button.add-to-cart-btn[disabled] {
   display: block;
 }
 
-.form-group input:not(:placeholder-shown):invalid {
+/* Fallback for older browsers without :user-invalid. Limited to inputs that have a
+   placeholder: a date input has none, so :not(:placeholder-shown) would match it
+   on page load and show its error before the user touched it. */
+.form-group input[placeholder]:not(:placeholder-shown):invalid {
   border-color: #dc2626;
   background-color: #fef2f2;
 }
 
-.form-group input:not(:placeholder-shown):invalid ~ .error-msg {
+.form-group input[placeholder]:not(:placeholder-shown):invalid ~ .error-msg {
+  display: block;
+}
+
+/* Success message, shown only when the URL ends in #order-placed */
+.order-placed-msg {
+  display: none;
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  border-left: 4px solid var(--accent-color);
+  background-color: var(--accent-light);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.order-placed-msg:target {
   display: block;
 }
 
@@ -1189,26 +1329,35 @@ button.add-to-cart-btn[disabled] {
   cursor: pointer;
 }
 
-@media (min-width: 674px) {
+@media (min-width: 652px) {
   .checkout-fields-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
 
+  /* Label column on the left, input on the right */
   .form-group {
     display: grid;
     grid-template-columns: 130px 1fr;
     align-items: center;
     gap: 16px;
   }
+}
 
-  .form-group .error-msg {
-    grid-column: 2 / 3;
+/* Between BP and 1024px each fieldset is narrow, so tighten the label column */
+@media (min-width: 652px) and (max-width: 1024px) {
+  .checkout-form fieldset {
+    padding: 20px 16px;
+  }
+
+  .form-group {
+    grid-template-columns: 92px 1fr;
+    gap: 10px;
   }
 }
 
-@media (max-width: 673.98px) {
+@media (max-width: 651.98px) {
   .checkout-fields-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1335,7 +1484,7 @@ button.add-to-cart-btn[disabled] {
 }
 
 /* --------------------------------------------------
-   13. RESPONSIVE BREAKPOINTS (375px, 674px, 1280px)
+   13. RESPONSIVE BREAKPOINTS (375px, 652px, 1280px)
    -------------------------------------------------- */
 @media (max-width: 1024px) {
   .product-grid {
@@ -1354,8 +1503,17 @@ button.add-to-cart-btn[disabled] {
   }
 }
 
-@media (max-width: 673.98px) {
+@media (max-width: 651.98px) {
   .desktop-only, .nav-left, .hospitality-link {
+    display: none;
+  }
+
+  /* Product & checkout pages have no hamburger, so keep their "Back to Store" link */
+  .nav-left.nav-simple {
+    display: flex;
+  }
+
+  .nav-simple a:not(:first-child) {
     display: none;
   }
 

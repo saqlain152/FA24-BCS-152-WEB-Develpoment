@@ -3,15 +3,15 @@
    - Works seamlessly on both index.html and product.html
    - Synchronizes cart across pages using localStorage
    - Uses Array.prototype.reduce() for total calculation
-   - Enforces limit: (N mod 4) + 2 = (74 % 4) + 2 = 4 items
+   - Enforces limit: (N mod 4) + 2 = (52 % 4) + 2 = 2 items
    ========================================================================== */
 
 (function () {
   'use strict';
 
-  // Personal Exam Variables (N = 74)
-  const N = 74;
-  const MAX_PRODUCT_LIMIT = (N % 4) + 2; // = 4
+  // Personal Exam Variables (N = 52)
+  const N = 52;
+  const MAX_PRODUCT_LIMIT = (N % 4) + 2; // = 2
 
   // Load state from localStorage or initialize
   let cart = [];
@@ -41,27 +41,51 @@
     return parseFloat(priceStr.replace(/[^0-9.]/g, '')) || 0;
   }
 
-  // 1. Toggle Mini-Cart Dropdown
+  function setMiniCartOpen(isOpen) {
+    if (!miniCartDropdown) return;
+    miniCartDropdown.classList.toggle('open', isOpen);
+    if (cartIconBtn) cartIconBtn.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  // 1. Toggle Mini-Cart Dropdown (click icon to open, click again to close)
   if (cartIconBtn) {
+    cartIconBtn.setAttribute('aria-expanded', 'false');
     cartIconBtn.addEventListener('click', function (e) {
       if (miniCartDropdown) {
         e.preventDefault();
-        miniCartDropdown.classList.toggle('open');
+        setMiniCartOpen(!miniCartDropdown.classList.contains('open'));
       }
     });
   }
 
+  // Clicks inside the panel (e.g. "Remove") must not count as "outside" clicks.
+  // Without this, removing an item re-renders the list, the clicked button is no
+  // longer in the page, and the outside-click check below closed the panel.
+  if (miniCartDropdown) {
+    miniCartDropdown.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  // Close on outside clicks. Add-to-cart buttons are skipped: they open the panel
+  // themselves, and the same click bubbling up here would close it straight away.
   document.addEventListener('click', function (e) {
-    if (miniCartDropdown && !e.target.closest('.cart-btn-wrapper')) {
-      miniCartDropdown.classList.remove('open');
+    if (miniCartDropdown && !e.target.closest('.cart-btn-wrapper, .add-to-cart-btn, .add-to-cart-large')) {
+      setMiniCartOpen(false);
     }
   });
 
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMiniCartOpen(false);
+  });
+
   // 2. Wire "Add to Cart" on Product Cards (Listing Page)
+  // Only real <button>s: the "View" links on product.html share the class
+  // but must keep working as links.
   productCards.forEach(function (card) {
     const titleEl = card.querySelector('.card-title');
     const priceEl = card.querySelector('.card-price');
-    const addBtn = card.querySelector('.add-to-cart-btn');
+    const addBtn = card.querySelector('button.add-to-cart-btn');
 
     if (!addBtn || !titleEl || !priceEl) return;
 
@@ -100,10 +124,14 @@
     updateCardButtons();
     renderCart();
 
-    // Open mini-cart temporarily to show item was added
-    if (miniCartDropdown) {
-      miniCartDropdown.classList.add('open');
-    }
+    // Open mini-cart to show item was added
+    setMiniCartOpen(true);
+  }
+
+  // How many of one product are already in the cart
+  function getQty(productName) {
+    const item = cart.find(item => item.name === productName);
+    return item ? item.qty : 0;
   }
 
   // Remove Item Method
@@ -125,14 +153,12 @@
   function updateCardButtons() {
     productCards.forEach(function (card) {
       const titleEl = card.querySelector('.card-title');
-      const addBtn = card.querySelector('.add-to-cart-btn');
+      const addBtn = card.querySelector('button.add-to-cart-btn');
       if (!titleEl || !addBtn) return;
 
       const productName = titleEl.textContent.trim();
-      const inCart = cart.find(item => item.name === productName);
-      const currentQty = inCart ? inCart.qty : 0;
 
-      if (currentQty >= MAX_PRODUCT_LIMIT) {
+      if (getQty(productName) >= MAX_PRODUCT_LIMIT) {
         addBtn.disabled = true;
         addBtn.textContent = 'Limit reached';
       } else {
@@ -163,37 +189,52 @@
     if (miniCartTotalSpan) miniCartTotalSpan.textContent = '$' + totalPrice.toFixed(2);
 
     if (miniCartItemsList) {
+      miniCartItemsList.innerHTML = '';
+
       if (cart.length === 0) {
-        miniCartItemsList.innerHTML = '<li style="font-size: 12px; color: #888; text-align: center; padding: 20px 0;">Your bag is empty</li>';
-        return;
+        const empty = document.createElement('li');
+        empty.className = 'mini-cart-empty';
+        empty.textContent = 'Your bag is empty';
+        miniCartItemsList.appendChild(empty);
       }
 
-      miniCartItemsList.innerHTML = '';
+      // Built with textContent (not innerHTML) so saved names are shown as plain text
       cart.forEach(function (item) {
         const li = document.createElement('li');
         li.className = 'mini-cart-item';
-        li.innerHTML = `
-          <div>
-            <div class="mini-cart-item-name">${item.name}</div>
-            <div class="mini-cart-item-meta">$${item.price.toFixed(2)} &times; ${item.qty}</div>
-          </div>
-          <button type="button" class="mini-cart-item-remove" data-name="${item.name}">Remove</button>
-        `;
+
+        const info = document.createElement('div');
+        const name = document.createElement('div');
+        name.className = 'mini-cart-item-name';
+        name.textContent = item.name;
+        const meta = document.createElement('div');
+        meta.className = 'mini-cart-item-meta';
+        meta.textContent = '$' + item.price.toFixed(2) + ' × ' + item.qty;
+        info.append(name, meta);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'mini-cart-item-remove';
+        removeBtn.textContent = 'Remove';
+        removeBtn.addEventListener('click', function () {
+          removeItem(item.name);
+        });
+
+        li.append(info, removeBtn);
         miniCartItemsList.appendChild(li);
       });
-
-      miniCartItemsList.querySelectorAll('.mini-cart-item-remove').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          removeItem(this.getAttribute('data-name'));
-        });
-      });
     }
+
+    // Let other scripts (product.html) react to cart changes
+    document.dispatchEvent(new CustomEvent('cartchange'));
   }
 
   // Expose API for product.html page
   window.CartAPI = {
     addItem: addItem,
-    removeItem: removeItem
+    removeItem: removeItem,
+    getQty: getQty,
+    limit: MAX_PRODUCT_LIMIT
   };
 
   // Initial boot

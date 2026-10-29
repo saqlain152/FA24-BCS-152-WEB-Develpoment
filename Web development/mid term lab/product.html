@@ -15,7 +15,7 @@
   <!-- Top Announcement Bar -->
   <aside class="top-announcement-bar">
     <div class="announcement-content">
-      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 674px &bull; ACCENT HUE = 158&deg;</span>
+      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 652px &bull; ACCENT HUE = 4&deg;</span>
       <span>COMPLIMENTARY DOMESTIC DISPATCH ON ORDERS OVER $150</span>
       <span class="desktop-only">USD ($)</span>
     </div>
@@ -24,7 +24,7 @@
   <!-- Header with Cart Badge & Dropdown -->
   <header class="site-header">
     <div class="header-inner">
-      <nav class="nav-left">
+      <nav class="nav-left nav-simple">
         <a href="index.html">← Back to Store</a>
         <a href="index.html#products">Catalog Releases</a>
       </nav>
@@ -50,10 +50,10 @@
           <div class="mini-cart-dropdown" id="mini-cart">
             <div class="mini-cart-header">
               <h3>Shopping Bag (<span id="mini-cart-qty">0</span>)</h3>
-              <span style="font-size: 11px; color: #888;">Limit: 4 / item</span>
+              <span style="font-size: 11px; color: #888;">Limit: 2 / item</span>
             </div>
             <ul class="mini-cart-items" id="mini-cart-items">
-              <li style="font-size: 12px; color: #888; text-align: center; padding: 20px 0;">Your bag is empty</li>
+              <li class="mini-cart-empty">Your bag is empty</li>
             </ul>
             <div class="mini-cart-footer">
               <div class="mini-cart-total">
@@ -137,7 +137,7 @@
           <label for="quantity-input" class="label-text">Quantity</label>
           <div class="quantity-stepper">
             <button type="button" class="stepper-btn" onclick="stepQty(-1)">&minus;</button>
-            <input id="quantity-input" type="number" value="1" min="1" max="5" readonly>
+            <input id="quantity-input" type="number" value="1" min="1" max="2" readonly>
             <button type="button" class="stepper-btn" onclick="stepQty(1)">&plus;</button>
           </div>
         </div>
@@ -260,7 +260,7 @@
         <div class="legal-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
-          <span>Breakpoint BP = 674px</span>
+          <span>Breakpoint BP = 652px</span>
         </div>
       </div>
     </div>
@@ -292,7 +292,7 @@
         desc: "Crafted in Italy from supple goat nubuck suede. Fully lined in silky cupro with antiqued silver Raccagni hardware and custom debossed Kith branding."
       },
       duffle: {
-        title: "Embroidered Suede Weekender Duffle",
+        title: "Kith Suede Weekender Duffle", // same name as its card, so the cart counts them together
         price: "$995.00",
         colour: "Camel Nubuck / Charcoal",
         image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=85",
@@ -346,8 +346,23 @@
     const prodId = urlParams.get('id') || 'salomon';
     const activeProd = productsData[prodId] || productsData.salomon;
 
+    // Gallery: full shot + two close-up crops of the same product photo
+    // (Unsplash's crop=focalpoint zooms in on the fp-x / fp-y point)
+    function photoUrl(width, extra) {
+      return activeProd.image.split('?')[0] + '?auto=format&fit=crop&w=' + width + '&q=85' + extra;
+    }
+    const galleryViews = [
+      '',
+      '&crop=focalpoint&fp-x=0.5&fp-y=0.3&fp-z=2',
+      '&crop=focalpoint&fp-x=0.5&fp-y=0.75&fp-z=2'
+    ];
+    galleryViews.forEach(function (extra, i) {
+      const thumb = document.getElementById('thumb-' + (i + 1));
+      thumb.src = photoUrl(400, '&h=400' + extra);          // square thumbnail
+      thumb.dataset.full = photoUrl(1200, '&h=900' + extra); // 4:3 like the main frame
+    });
+
     document.getElementById('pdp-img').src = activeProd.image;
-    document.getElementById('thumb-1').src = activeProd.image;
     document.getElementById('pdp-title').textContent = activeProd.title;
     document.getElementById('pdp-price').textContent = activeProd.price;
     document.getElementById('pdp-colour').textContent = activeProd.colour;
@@ -360,16 +375,23 @@
       btn.classList.add('active');
     }
 
+    // How many more of this product may still be added (cart limit = 2)
+    function remainingQty() {
+      if (!window.CartAPI) return parseInt(document.getElementById('quantity-input').max);
+      return window.CartAPI.limit - window.CartAPI.getQty(activeProd.title);
+    }
+
     function stepQty(amount) {
       const input = document.getElementById('quantity-input');
       let val = parseInt(input.value) + amount;
-      if (val >= 1 && val <= 5) input.value = val;
+      if (val >= 1 && val <= remainingQty()) input.value = val;
     }
 
     function swapImage(box) {
       document.querySelectorAll('.thumb-box').forEach(b => b.classList.remove('active'));
       box.classList.add('active');
-      document.getElementById('pdp-img').src = box.querySelector('img').src;
+      const img = box.querySelector('img');
+      document.getElementById('pdp-img').src = img.dataset.full || img.src;
     }
 
     function addCurrentProductToCart() {
@@ -378,6 +400,26 @@
         window.CartAPI.addItem(activeProd.title, parseFloat(activeProd.price.replace(/[^0-9.]/g, '')), qty);
       }
     }
+
+    // Keep the big button and the quantity in step with the cart limit
+    function updatePdpButton() {
+      const btn = document.getElementById('pdp-add-btn');
+      const input = document.getElementById('quantity-input');
+      const left = remainingQty();
+
+      if (left <= 0) {
+        btn.disabled = true;
+        btn.textContent = 'Limit reached';
+        input.value = 1;
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = 'Add to Cart &bull; In Stock';
+        if (parseInt(input.value) > left) input.value = left;
+      }
+    }
+
+    document.addEventListener('cartchange', updatePdpButton);
+    updatePdpButton();
   </script>
 
 </body>

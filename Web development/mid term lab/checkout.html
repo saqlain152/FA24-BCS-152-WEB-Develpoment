@@ -15,7 +15,7 @@
   <!-- Top Announcement -->
   <aside class="top-announcement-bar">
     <div class="announcement-content">
-      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 674px &bull; ACCENT HUE = 158&deg;</span>
+      <span class="desktop-only">EXAM DEMO: BREAKPOINT BP = 652px &bull; ACCENT HUE = 4&deg;</span>
       <span>SECURE ENCRYPTED CHECKOUT</span>
       <span class="desktop-only">USD ($)</span>
     </div>
@@ -24,7 +24,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
-      <nav class="nav-left">
+      <nav class="nav-left nav-simple">
         <a href="index.html">← Back to Store</a>
         <a href="index.html#products">Catalog Releases</a>
       </nav>
@@ -43,14 +43,20 @@
   <main class="checkout-wrapper">
     <h1 class="checkout-title">Express Checkout</h1>
     
-    <form class="checkout-form" method="post" action="#" onsubmit="alert('Order submitted successfully!'); return false;">
+    <!-- Shown by CSS (:target) after a valid submit lands on checkout.html#order-placed -->
+    <p id="order-placed" class="order-placed-msg" role="status">
+      Order placed &mdash; thank you! A dispatch confirmation will be sent to your email.
+    </p>
+
+    <!-- The browser only submits once every field is valid, so no JavaScript is needed -->
+    <form class="checkout-form" method="get" action="checkout.html#order-placed">
       
-      <!-- Side by Side on >=BP (674px), Stacked on <BP -->
+      <!-- Side by Side on >=BP (652px), Stacked on <BP -->
       <div class="checkout-fields-grid">
         
         <!-- FIELDSET 1: CONTACT -->
         <fieldset>
-          <legend>Contact Information</legend>
+          <legend>Contact</legend>
           
           <div class="form-group">
             <label for="fullname">Full Name *</label>
@@ -101,7 +107,7 @@
 
         <!-- FIELDSET 2: DELIVERY -->
         <fieldset>
-          <legend>Delivery Details</legend>
+          <legend>Delivery</legend>
 
           <div class="form-group">
             <label for="address">Street Address *</label>
@@ -142,9 +148,9 @@
                 name="delivery_date" 
                 required 
                 min="2026-10-29" 
-                max="2027-01-11"
+                max="2026-12-20"
               >
-              <span class="error-msg">Date must be between 2026-10-29 and 2027-01-11 (max N=74 days).</span>
+              <span class="error-msg">Date must be between 2026-10-29 and 2026-12-20 (max N=52 days).</span>
             </div>
           </div>
 
